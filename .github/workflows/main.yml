@@ -1,7 +1,7 @@
-name: Weekly KvScraper
+name: Scraper
   on: [push, workflow_dispatch]
   jobs:
-    scrape:
+    run:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v3
@@ -10,6 +10,5 @@ name: Weekly KvScraper
             python-version: '3.9'
         - run: |
             pip install playwright
-            playwright install-deps
             playwright install chromium
             python main.py
