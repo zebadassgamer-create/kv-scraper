@@ -1,0 +1,1 @@
+print("Le robot fonctionne !")
