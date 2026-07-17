@@ -1,0 +1,23 @@
+name: Weekly KvScraper
+
+  on:
+    push:
+    workflow_dispatch:
+
+  jobs:
+    scrape:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+        - name: Set up Python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.9'
+        - name: Install dependencies
+          run: |
+            pip install playwright
+            playwright install-deps
+            playwright install chromium
+        - name: Run scraper
+          run: python main.py
